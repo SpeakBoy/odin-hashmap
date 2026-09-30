@@ -141,3 +141,5 @@ class HashMap {
         return entries;
     }
 }
+
+export default HashMap;
