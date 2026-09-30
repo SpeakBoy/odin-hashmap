@@ -46,6 +46,19 @@ class HashMap {
         }
         return undefined;
     }
-}
 
-const map = new HashMap();
+    // Takes a key as an argument
+    // and returns a boolean based on whether or not the key
+    // is in the hash map.
+    has(key) {
+        const index = this.hash(key);
+        if (this.#buckets[index]) {
+            for (const entry of this.#buckets[index]) {
+                if (entry.key === key) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
