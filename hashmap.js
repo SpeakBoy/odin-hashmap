@@ -113,4 +113,18 @@ class HashMap {
         }
         return keys;
     }
+
+    // Returns an array containing all the values (not keys)
+    // inside the hash map.
+    values() {
+        const values = [];
+        for (const bucket of this.#buckets) {
+            if (bucket) {
+                for (const entry of bucket) {
+                    values.push(entry.value);
+                }
+            }
+        }
+        return values;
+    }
 }
