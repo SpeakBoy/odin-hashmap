@@ -93,4 +93,10 @@ class HashMap {
         }
         return length;
     }
+
+    // Removes all entries in the hash map.
+    clear() {
+        this.#buckets = [];
+        this.#capacity = 16;
+    }
 }
