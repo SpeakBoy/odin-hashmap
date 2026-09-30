@@ -30,6 +30,9 @@ class HashMap {
             }
         }
         this.#buckets[index].push({ key, value });
+        if (this.length() > this.#loadFactor * this.#capacity) {
+            this.#capacity *= 2;
+        }
     }
 
     // Takes a key as an argument
