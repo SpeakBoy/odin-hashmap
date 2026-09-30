@@ -127,4 +127,17 @@ class HashMap {
         }
         return values;
     }
+
+    // Returns an array that contains each key-value pair in their own arrays.
+    entries() {
+        const entries = [];
+        for (const bucket of this.#buckets) {
+            if (bucket) {
+                for (const entry of bucket) {
+                    entries.push([entry.key, entry.value]);
+                }
+            }
+        }
+        return entries;
+    }
 }
