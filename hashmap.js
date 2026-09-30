@@ -61,4 +61,21 @@ class HashMap {
         }
         return false;
     }
+
+    // Takes a key as an argument.
+    // If the given key is in the hash map,
+    // it should remove the entry with that key the return true.
+    // If the key isn't in the hash map, it should return false.
+    remove(key) {
+        if (this.has(key)) {
+            const index = this.hash(key);
+            for (let i = 0; i < this.#buckets[index].length; i++) {
+                if (key === this.#buckets[index][i].key) {
+                    this.#buckets[index].splice(i, 1);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
