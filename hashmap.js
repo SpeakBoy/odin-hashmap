@@ -99,4 +99,18 @@ class HashMap {
         this.#buckets = [];
         this.#capacity = 16;
     }
+
+    // Returns an array containing all the keys (not values)
+    // inside the hash map.
+    keys() {
+        const keys = [];
+        for (const bucket of this.#buckets) {
+            if (bucket) {
+                for (const entry of bucket) {
+                    keys.push(entry.key);
+                }
+            }
+        }
+        return keys;
+    }
 }
