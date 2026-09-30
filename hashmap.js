@@ -26,13 +26,25 @@ class HashMap {
         for (const entry of this.#buckets[index]) {
             if (entry.key === key) {
                 entry.value = value;
-                console.log(this.#buckets);
                 return;
             }
         }
         this.#buckets[index].push({ key, value });
-        console.log(index);
-        console.log(this.#buckets);
+    }
+
+    // Takes a key as an argument
+    // and returns the value that is associated with it.
+    // If the key is not found, return undefined.
+    get(key) {
+        const index = this.hash(key);
+        if (this.#buckets[index]) {
+            for (const entry of this.#buckets[index]) {
+                if (entry.key === key) {
+                    return entry.value;
+                }
+            }
+        }
+        return undefined;
     }
 }
 
